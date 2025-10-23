@@ -66,6 +66,11 @@ class Krestiki(QWidget):
         self.label1.move(0, 600)
         self.label1.resize(600, 100)
 
+        self.restar = QPushButton('рестарт', self)
+        self.restar.move(0, 700)
+        self.restar.resize(600, 100)
+        self.restar.clicked.connect(self.restart)
+
     def hod(self):
         if self.znaki[0] == ['']:
             self.hods += 1
@@ -248,6 +253,24 @@ class Krestiki(QWidget):
         elif self.znaki[2] == self.znaki[4] == self.znaki[6] == ['0']:
             self.label1.setText("Победили 0")
             self.nomer = 3
+
+
+
+    def restart(self):
+        self.znaki = [[''],[''],[''],[''],[''],[''],[''],[''],['']]
+        self.blok.setText('')
+        self.blok1.setText('')
+        self.blok2.setText('')
+        self.blok3.setText('')
+        self.blok4.setText('')
+        self.blok5.setText('')
+        self.blok6.setText('')
+        self.blok7.setText('')
+        self.blok8.setText('')
+        self.nomer = 0
+        self.hods = 0
+        self.label1.setText(" Нажимайте по очереди. Кто первый соберет 3 Х или 0 в ряд(или диагонали), тот победил.\n Кнопка рестарт очищает поле.")
+
 
 if __name__ == '__main__':
     app = QApplication(sys.argv)
