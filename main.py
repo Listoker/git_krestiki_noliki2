@@ -61,7 +61,7 @@ class Krestiki(QWidget):
         self.blok8.resize(200, 200)
         self.blok8.clicked.connect(self.hod8)
 
-        self.label1 = QLabel(" Нажимайте по очереди. Кто первый соберет 3 Х или 0 в ряд(или диагонали), тот победил.\n Кнопка рестарт очищает поле.", self)
+        self.label1 = QLabel(" Нажимайте по очереди. Кто первый соберет 3 Х или 0 в ряд(или по диагонали), тот победил.\n Кнопка рестарт очищает поле.", self)
         self.label1.move(0, 600)
         self.label1.resize(600, 100)
 
@@ -71,10 +71,12 @@ class Krestiki(QWidget):
                 self.znaki[0] = ['x']
                 self.blok.setText('X')
                 self.nomer = 1
-            else:
+                self.pobed_x()
+            elif self.nomer == 1:
                 self.znaki[0] = ['0']
                 self.blok.setText('0')
                 self.nomer = 0
+                self.pobed_0()
 
     def hod1(self):
         if self.znaki[1] == ['']:
@@ -82,10 +84,12 @@ class Krestiki(QWidget):
                 self.znaki[1] = ['x']
                 self.blok1.setText('X')
                 self.nomer = 1
-            else:
+                self.pobed_x()
+            elif self.nomer == 1:
                 self.znaki[1] = ['0']
                 self.blok1.setText('0')
                 self.nomer = 0
+                self.pobed_0()
 
     def hod2(self):
         if self.znaki[2] == ['']:
@@ -93,10 +97,12 @@ class Krestiki(QWidget):
                 self.znaki[2] = ['x']
                 self.blok2.setText('X')
                 self.nomer = 1
-            else:
+                self.pobed_x()
+            elif self.nomer == 1:
                 self.znaki[2] = ['0']
                 self.blok2.setText('0')
                 self.nomer = 0
+                self.pobed_0()
 
     def hod3(self):
         if self.znaki[3] == ['']:
@@ -104,10 +110,12 @@ class Krestiki(QWidget):
                 self.znaki[3] = ['x']
                 self.blok3.setText('X')
                 self.nomer = 1
-            else:
+                self.pobed_x()
+            elif self.nomer == 1:
                 self.znaki[3] = ['0']
                 self.blok3.setText('0')
                 self.nomer = 0
+                self.pobed_0()
 
     def hod4(self):
         if self.znaki[4] == ['']:
@@ -115,10 +123,12 @@ class Krestiki(QWidget):
                 self.znaki[4] = ['x']
                 self.blok4.setText('X')
                 self.nomer = 1
-            else:
+                self.pobed_x()
+            elif self.nomer == 1:
                 self.znaki[4] = ['0']
                 self.blok4.setText('0')
                 self.nomer = 0
+                self.pobed_0()
 
     def hod5(self):
         if self.znaki[5] == ['']:
@@ -126,10 +136,12 @@ class Krestiki(QWidget):
                 self.znaki[5] = ['x']
                 self.blok5.setText('X')
                 self.nomer = 1
-            else:
+                self.pobed_x()
+            elif self.nomer == 1:
                 self.znaki[5] = ['0']
                 self.blok5.setText('0')
                 self.nomer = 0
+                self.pobed_0()
 
     def hod6(self):
         if self.znaki[6] == ['']:
@@ -137,10 +149,12 @@ class Krestiki(QWidget):
                 self.znaki[6] = ['x']
                 self.blok6.setText('X')
                 self.nomer = 1
-            else:
+                self.pobed_x()
+            elif self.nomer == 1:
                 self.znaki[6] = ['0']
                 self.blok6.setText('0')
                 self.nomer = 0
+                self.pobed_0()
 
     def hod7(self):
         if self.znaki[7] == ['']:
@@ -148,10 +162,12 @@ class Krestiki(QWidget):
                 self.znaki[7] = ['x']
                 self.blok7.setText('X')
                 self.nomer = 1
-            else:
+                self.pobed_x()
+            elif self.nomer == 1:
                 self.znaki[7] = ['0']
                 self.blok7.setText('0')
                 self.nomer = 0
+                self.pobed_0()
 
     def hod8(self):
         if self.znaki[8] == ['']:
@@ -159,10 +175,50 @@ class Krestiki(QWidget):
                 self.znaki[8] = ['x']
                 self.blok8.setText('X')
                 self.nomer = 1
-            else:
+                self.pobed_x()
+            elif self.nomer == 1:
                 self.znaki[8] = ['0']
                 self.blok8.setText('0')
                 self.nomer = 0
+                self.pobed_0()
+
+
+    def pobed_x(self):
+        if self.znaki[0] == self.znaki[1] == self.znaki[2] == ['x']:
+            self.label1.setText("Победили Х")
+        if self.znaki[3] == self.znaki[4] == self.znaki[5] == ['x']:
+            self.label1.setText("Победили Х")
+        if self.znaki[6] == self.znaki[7] == self.znaki[8] == ['x']:
+            self.label1.setText("Победили Х")
+        if self.znaki[0] == self.znaki[3] == self.znaki[6] == ['x']:
+            self.label1.setText("Победили Х")
+        if self.znaki[1] == self.znaki[4] == self.znaki[7] == ['x']:
+            self.label1.setText("Победили Х")
+        if self.znaki[2] == self.znaki[5] == self.znaki[8] == ['x']:
+            self.label1.setText("Победили Х")
+        if self.znaki[0] == self.znaki[4] == self.znaki[8] == ['x']:
+            self.label1.setText("Победили Х")
+        if self.znaki[2] == self.znaki[4] == self.znaki[6] == ['x']:
+            self.label1.setText("Победили Х")
+
+
+    def pobed_0(self):
+        if self.znaki[0] == self.znaki[1] == self.znaki[2] == ['0']:
+            self.label1.setText("Победили 0")
+        if self.znaki[3] == self.znaki[4] == self.znaki[5] == ['0']:
+            self.label1.setText("Победили 0")
+        if self.znaki[6] == self.znaki[7] == self.znaki[8] == ['0']:
+            self.label1.setText("Победили 0")
+        if self.znaki[0] == self.znaki[3] == self.znaki[6] == ['0']:
+            self.label1.setText("Победили 0")
+        if self.znaki[1] == self.znaki[4] == self.znaki[7] == ['0']:
+            self.label1.setText("Победили 0")
+        if self.znaki[2] == self.znaki[5] == self.znaki[8] == ['0']:
+            self.label1.setText("Победили 0")
+        if self.znaki[0] == self.znaki[4] == self.znaki[8] == ['0']:
+            self.label1.setText("Победили 0")
+        if self.znaki[2] == self.znaki[4] == self.znaki[6] == ['0']:
+            self.label1.setText("Победили 0")
 
 
 if __name__ == '__main__':
