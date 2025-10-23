@@ -61,6 +61,10 @@ class Krestiki(QWidget):
         self.blok8.resize(200, 200)
         self.blok8.clicked.connect(self.hod8)
 
+        self.label1 = QLabel(" Нажимайте по очереди. Кто первый соберет 3 Х или 0 в ряд(или диагонали), тот победил.\n Кнопка рестарт очищает поле.", self)
+        self.label1.move(0, 600)
+        self.label1.resize(600, 100)
+
     def hod(self):
         if self.znaki[0] == ['']:
             if self.nomer == 0:
